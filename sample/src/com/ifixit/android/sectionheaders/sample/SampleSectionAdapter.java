@@ -36,7 +36,12 @@ public class SampleSectionAdapter extends Section {
    }
 
    public View getView(int position, View convertView, ViewGroup parent) {
-      TextView view = new TextView(mContext);
+      TextView view = (TextView)convertView;
+
+      if (view == null) {
+         view = new TextView(mContext);
+         view.setTextSize(30);
+      }
 
       view.setText(mList.get(position));
 
@@ -50,7 +55,12 @@ public class SampleSectionAdapter extends Section {
 
    @Override
    public View getHeaderView(View convertView, ViewGroup parent) {
-      TextView header = new TextView(mContext);
+      TextView header = (TextView)convertView;
+      
+      if (header == null) {
+         header = new TextView(mContext);
+         header.setTextSize(15);
+      }
 
       header.setText(mHeader);
 
