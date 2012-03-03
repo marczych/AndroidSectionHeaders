@@ -60,6 +60,8 @@ public class SampleSectionAdapter extends Section {
       if (header == null) {
          header = new TextView(mContext);
          header.setTextSize(15);
+         header.setBackgroundColor(0xFFFFFFFF);
+         header.setTextColor(0xFF222222);
       }
 
       header.setText(mHeader);

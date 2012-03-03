@@ -25,10 +25,11 @@ public class SectionHeadersSampleActivity extends Activity {
 
    private SectionHeadersAdapter getSectionAdapter() {
       SectionHeadersAdapter adapter = new SectionHeadersAdapter();
-      SampleSectionAdapter sampleAdapter = new SampleSectionAdapter(this,
-       getSampleList(), "First Header");
-      
-      adapter.addSection(sampleAdapter);
+
+      for (int i = 0; i < 10; i ++) {
+         adapter.addSection(new SampleSectionAdapter(this, getSampleList(),
+          "Header #" + i));
+      }
 
       return adapter;
    }

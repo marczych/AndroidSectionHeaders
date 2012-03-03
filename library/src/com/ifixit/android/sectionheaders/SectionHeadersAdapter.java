@@ -1,5 +1,7 @@
 package com.ifixit.android.sectionheaders;
 
+import java.util.ArrayList;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -21,15 +23,25 @@ public class SectionHeadersAdapter extends BaseAdapter {
    private static final int HEADER_VIEW_TYPE = 0;
    private static final int ITEM_VIEW_TYPE = 1;
 
-   protected Section mSection;
+   protected ArrayList<Section> mSections;
+
+   public SectionHeadersAdapter() {
+      mSections = new ArrayList<Section>();
+   }
 
    public void addSection(Section section) {
-      mSection = section;
+      mSections.add(section);
    }
 
    public int getCount() {
-      // One more for the header
-      return mSection.getCount() + 1;
+      int count = 0;
+
+      for (Section section : mSections) {
+         // One more for the header
+         count += section.getCount() + 1;
+      }
+
+      return count;
    }
 
    public Object getItem(int position) {
@@ -38,7 +50,7 @@ public class SectionHeadersAdapter extends BaseAdapter {
       if (section.position == HEADER_POSITION) {
          return section.section.getHeaderItem();
       } else {
-         return mSection.getItem(section.position);
+         return section.section.getItem(section.position);
       }
    }
 
@@ -92,10 +104,16 @@ public class SectionHeadersAdapter extends BaseAdapter {
     * given absolute position in the list.
     */
    private SectionPosition getSectionPosition(int position) {
-      if (position == 0) {
-         return new SectionPosition(mSection, HEADER_POSITION);
-      } else {
-         return new SectionPosition(mSection, position - 1);
+      for (Section section : mSections) {
+         if (position == 0) {
+            return new SectionPosition(section, HEADER_POSITION);
+         } else if (position <= section.getCount()) {
+            return new SectionPosition(section, position - 1);
+         } else {
+            position -= section.getCount() + 1;
+         }
       }
+
+      return null;
    }
 }
