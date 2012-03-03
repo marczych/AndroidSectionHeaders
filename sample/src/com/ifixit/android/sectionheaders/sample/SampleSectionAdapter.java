@@ -49,7 +49,7 @@ public class SampleSectionAdapter extends Section {
    }
 
    @Override
-   public View getHeaderView() {
+   public View getHeaderView(View convertView, ViewGroup parent) {
       TextView header = new TextView(mContext);
 
       header.setText(mHeader);
