@@ -21,6 +21,7 @@ public class SectionHeadersSampleActivity extends Activity {
       mListView = (ListView)findViewById(R.id.section_list);
       mAdapter = getSectionAdapter();
       mListView.setAdapter(mAdapter);
+      mListView.setOnItemClickListener(mAdapter);
    }
 
    private SectionHeadersAdapter getSectionAdapter() {

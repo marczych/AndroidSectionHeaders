@@ -4,9 +4,15 @@ import java.util.ArrayList;
 
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.AdapterView.OnItemClickListener;
+
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseAdapter;
 
-public class SectionHeadersAdapter extends BaseAdapter {
+public class SectionHeadersAdapter extends BaseAdapter
+ implements OnItemClickListener {
    // Needed because Java can't return two values from a function
    private static class SectionPosition {
       public Section section;
@@ -96,6 +102,17 @@ public class SectionHeadersAdapter extends BaseAdapter {
          return section.section.getHeaderView(convertView, parent);
       } else {
          return section.section.getView(section.position, convertView, parent);
+      }
+   }
+
+   public void onItemClick(AdapterView<?> adapterView, View view,
+    int position, long id) {
+      SectionPosition section = getSectionPosition(position);
+
+      if (section.position == HEADER_POSITION) {
+         return;
+      } else {
+         section.section.onItemClick(adapterView, view, section.position, id);
       }
    }
 

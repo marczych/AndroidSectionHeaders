@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 
 import com.ifixit.android.sectionheaders.Section;
 
+import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SampleSectionAdapter extends Section {
    private Context mContext;
@@ -67,5 +69,11 @@ public class SampleSectionAdapter extends Section {
       header.setText(mHeader);
 
       return header;
+   }
+
+   public void onItemClick(AdapterView<?> adapterView, View view, int position,
+    long id) {
+      Toast.makeText(mContext, "Pos: " + position + " | " + mList.get(position),
+       Toast.LENGTH_SHORT).show();
    }
 }
