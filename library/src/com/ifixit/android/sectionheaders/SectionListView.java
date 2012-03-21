@@ -56,12 +56,36 @@ public class SectionListView extends RelativeLayout implements
     int visibleItemCount, int totalItemCount) {
       int headerPos;
 
-      if (mAdapter != null && (headerPos = mAdapter.getHeaderPosition(
+      if (mAdapter == null) {
+         return;
+      }
+
+      if ((headerPos = mAdapter.getHeaderPosition(
        firstVisibleItem)) != mHeaderPosition) {
          mHeaderPosition = headerPos;
-         mPinnedHeader = mAdapter.getView(mHeaderPosition, null, this);
-         injectPinnedHeader(mPinnedHeader);
+         injectPinnedHeader(mAdapter.getView(mHeaderPosition, null, this));
       }
+
+      int nextHeader = mAdapter.getNextHeaderPosition(firstVisibleItem);
+      int nextHeaderChild = nextHeader - firstVisibleItem;
+      int top;
+
+      View nextView = mListView.getChildAt(nextHeaderChild);
+
+      if (nextView == null) {
+         return;
+      }
+
+      if (nextView.getTop() <= mPinnedHeader.getHeight()) {
+         top = nextView.getTop();
+      } else {
+         top = mPinnedHeader.getHeight();
+      }
+
+      mPinnedHeader.layout(mPinnedHeader.getLeft(),
+                           top - mPinnedHeader.getHeight(),
+                           mPinnedHeader.getRight(),
+                           top);
    }
 
    public void onScrollStateChanged(AbsListView view, int scrollState) {
