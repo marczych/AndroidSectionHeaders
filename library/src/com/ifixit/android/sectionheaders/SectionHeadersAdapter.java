@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView.OnItemClickListener;
 
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseAdapter;
 
 public class SectionHeadersAdapter extends BaseAdapter
@@ -132,5 +131,14 @@ public class SectionHeadersAdapter extends BaseAdapter
       }
 
       return null;
+   }
+
+   /**
+    * Returns the position of the header for the given position
+    */
+   protected int getHeaderPosition(int position) {
+      SectionPosition sectionPosition = getSectionPosition(position);
+
+      return position - (sectionPosition.position + 1);
    }
 }
