@@ -3,7 +3,8 @@
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
       android:orientation="vertical" >
-   <ListView android:id="@+id/section_list"
+   <com.ifixit.android.sectionheaders.SectionListView
+         android:id="@+id/section_list"
          android:layout_width="fill_parent"
          android:layout_height="fill_parent" />
 </LinearLayout>

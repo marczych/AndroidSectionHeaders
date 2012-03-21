@@ -2,15 +2,13 @@ package com.ifixit.android.sectionheaders.sample;
 
 import java.util.ArrayList;
 
-import com.ifixit.android.sectionheaders.SectionHeadersAdapter;
+import com.ifixit.android.sectionheaders.*;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import android.widget.ListView;
-
 public class SectionHeadersSampleActivity extends Activity {
-   private ListView mListView;
+   private SectionListView mListView;
    private SectionHeadersAdapter mAdapter;
 
    @Override
@@ -18,10 +16,10 @@ public class SectionHeadersSampleActivity extends Activity {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.section_headers);
 
-      mListView = (ListView)findViewById(R.id.section_list);
+      mListView = (SectionListView)findViewById(R.id.section_list);
       mAdapter = getSectionAdapter();
       mListView.setAdapter(mAdapter);
-      mListView.setOnItemClickListener(mAdapter);
+      mListView.getListView().setOnItemClickListener(mAdapter);
    }
 
    private SectionHeadersAdapter getSectionAdapter() {
