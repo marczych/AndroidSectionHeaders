@@ -40,7 +40,6 @@ public class SectionListView extends RelativeLayout implements
       inflater.inflate(R.layout.section_list_view, this, true);
 
       mListView = (ListView)findViewById(R.id.list_view);
-      mListView.setOnScrollListener(this);
    }
 
    public ListView getListView() {
@@ -50,18 +49,15 @@ public class SectionListView extends RelativeLayout implements
    public void setAdapter(SectionHeadersAdapter adapter) {
       mAdapter = adapter;
       mListView.setAdapter(mAdapter);
+      mListView.setOnScrollListener(this);
    }
 
    public void onScroll(AbsListView view, int firstVisibleItem,
     int visibleItemCount, int totalItemCount) {
       int headerPos;
 
-      if (mAdapter == null) {
-         return;
-      }
-
-      if ((headerPos = mAdapter.getHeaderPosition(
-       firstVisibleItem)) != mHeaderPosition) {
+      if ((headerPos = mAdapter.getHeaderPosition(firstVisibleItem)) !=
+       mHeaderPosition) {
          mHeaderPosition = headerPos;
          injectPinnedHeader(mAdapter.getView(mHeaderPosition, null, this));
       }
