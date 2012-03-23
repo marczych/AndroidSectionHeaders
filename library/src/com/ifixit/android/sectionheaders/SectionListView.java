@@ -59,7 +59,8 @@ public class SectionListView extends RelativeLayout implements
       if ((headerPos = mAdapter.getHeaderPosition(firstVisibleItem)) !=
        mHeaderPosition) {
          mHeaderPosition = headerPos;
-         injectPinnedHeader(mAdapter.getView(mHeaderPosition, null, this));
+         injectPinnedHeader(mAdapter.getView(mHeaderPosition, mPinnedHeader,
+          this));
       }
 
       int nextHeader = mAdapter.getNextHeaderPosition(firstVisibleItem);
