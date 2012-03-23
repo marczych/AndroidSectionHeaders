@@ -9,9 +9,9 @@ import android.view.View;
 
 import android.widget.AbsListView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 
-public class SectionListView extends RelativeLayout implements
+public class SectionListView extends FrameLayout implements
  AbsListView.OnScrollListener {
    private ListView mListView;
    private SectionHeadersAdapter mAdapter;
@@ -93,10 +93,10 @@ public class SectionListView extends RelativeLayout implements
             removeView(mPinnedHeader);
          }
 
-         RelativeLayout.LayoutParams layoutParams =
-          new RelativeLayout.LayoutParams(
-          RelativeLayout.LayoutParams.FILL_PARENT,
-          RelativeLayout.LayoutParams.WRAP_CONTENT);
+         FrameLayout.LayoutParams layoutParams =
+          new FrameLayout.LayoutParams(
+          FrameLayout.LayoutParams.FILL_PARENT,
+          FrameLayout.LayoutParams.WRAP_CONTENT);
 
          addView(header, layoutParams);
       }
