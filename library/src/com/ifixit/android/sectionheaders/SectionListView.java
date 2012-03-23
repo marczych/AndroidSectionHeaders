@@ -87,16 +87,20 @@ public class SectionListView extends RelativeLayout implements
    }
 
    private void injectPinnedHeader(View header) {
-      if (mPinnedHeader != null) {
-         removeView(mPinnedHeader);
+      // Adapter isn't using the convertView so we must remove the previous one
+      if (mPinnedHeader != header) {
+         if (mPinnedHeader != null) {
+            removeView(mPinnedHeader);
+         }
+
+         RelativeLayout.LayoutParams layoutParams =
+          new RelativeLayout.LayoutParams(
+          RelativeLayout.LayoutParams.FILL_PARENT,
+          RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+         addView(header, layoutParams);
       }
 
       mPinnedHeader = header;
-      RelativeLayout.LayoutParams layoutParams =
-       new RelativeLayout.LayoutParams(
-       RelativeLayout.LayoutParams.FILL_PARENT,
-       RelativeLayout.LayoutParams.WRAP_CONTENT);
-
-      addView(mPinnedHeader, layoutParams);
    }
 }
