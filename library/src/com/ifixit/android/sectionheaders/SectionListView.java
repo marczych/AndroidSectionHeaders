@@ -66,17 +66,15 @@ public class SectionListView extends RelativeLayout implements
       int nextHeader = mAdapter.getNextHeaderPosition(firstVisibleItem);
       int nextHeaderChild = nextHeader - firstVisibleItem;
       int top;
-
       View nextView = mListView.getChildAt(nextHeaderChild);
 
-      if (nextView == null) {
-         return;
-      }
 
-      if (nextView.getTop() <= mPinnedHeader.getHeight()) {
-         top = nextView.getTop();
-      } else {
+      // Pin the header at the top if the next header is not in view or the
+      // next header is "pushing" the current header up
+      if (nextView == null || nextView.getTop() > mPinnedHeader.getHeight()) {
          top = mPinnedHeader.getHeight();
+      } else {
+         top = nextView.getTop();
       }
 
       mPinnedHeader.layout(mPinnedHeader.getLeft(),
