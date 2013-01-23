@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="Theme.SectionHeaders" parent="android:Theme">
+        <item name="sectionListViewStyle">@style/Theme.SectionHeaders.ListViewStyle</item>
+    </style>
+    <style name="Theme.SectionHeaders.ListViewStyle">
+        <item name="android:cacheColorHint">#00000000</item>
+        <item name="android:divider">#FFDDDDDD</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:fadingEdge">none</item>
+    </style>
+</resources>
