@@ -16,7 +16,7 @@
 
    <name>AndroidSectionHeaders (Parent)</name>
    <url>https://github.com/marczych/AndroidSectionHeaders</url>
-   <description>Asynchronous image loading library for Android</description>
+   <description>Image zoom library for Android</description>
    <inceptionYear>2011</inceptionYear>
 
    <modules>
