@@ -1,8 +1,8 @@
-package com.ifixit.android.sectionheaders.sample;
+package com.marczych.androidsectionheaders.sample;
 
 import java.util.ArrayList;
 
-import com.ifixit.android.sectionheaders.*;
+import com.marczych.androidsectionheaders.*;
 
 import android.app.Activity;
 import android.os.Bundle;

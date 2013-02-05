@@ -1,4 +1,4 @@
-package com.ifixit.android.sectionheaders;
+package com.marczych.androidsectionheaders;
 
 import android.view.ViewGroup;
 import android.view.View;

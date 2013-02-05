@@ -1,4 +1,4 @@
-package com.ifixit.android.sectionheaders.sample;
+package com.marczych.androidsectionheaders.sample;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ifixit.android.sectionheaders.Section;
+import com.marczych.androidsectionheaders.Section;
 
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -58,7 +58,7 @@ public class SampleSectionAdapter extends Section {
    @Override
    public View getHeaderView(View convertView, ViewGroup parent) {
       TextView header = (TextView)convertView;
-      
+
       if (header == null) {
          header = new TextView(mContext);
          header.setTextSize(15);
