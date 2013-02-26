@@ -1,5 +1,22 @@
 An easy solution to adding sectioned headers to a ListView.
 
+Installation
+=======
+
+Maven
+-----
+
+Clone the project locally, and run `mvn clean install`
+
+Then, in the project you want to include it in, add this to the POM's dependencies.
+
+    <dependency>
+        <groupId>com.marczych.androidsectionheaders</groupId>
+        <artifactId>android-section-headers</artifactId>
+        <version>1.0.0</version>
+        <type>apklib</type>
+    </dependency>
+
 License
 =======
 
